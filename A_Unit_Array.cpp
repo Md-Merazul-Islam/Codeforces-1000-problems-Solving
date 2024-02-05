@@ -35,7 +35,6 @@ void hello_world_solve_here()
 {
 
     int n;
-    int n;
 
     cin >> n;
     int a[n + 1];
