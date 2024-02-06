@@ -53,7 +53,6 @@ signed main()
     fast;
     int t = 1;
     cin >> t;
-    cin >> t;
     while (t--)
         hello_world_solve_here();
     return 0;
