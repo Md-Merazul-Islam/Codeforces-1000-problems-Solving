@@ -56,7 +56,6 @@ const int N = 2e5 +5;
 void hello_world_solve_here()
 {
     ll n;
-    ll n;
     cin >> n;
     vi a(n);
     scan(a);
