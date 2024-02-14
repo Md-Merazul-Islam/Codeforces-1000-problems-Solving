@@ -4,8 +4,8 @@
 **             https://github.com/Md-Merazul-Islam           **
 **************************************************************/
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 using namespace std;
 #define PI 3.14159265359
@@ -17,7 +17,7 @@ using namespace std;
 #define pb push_back
 #define vi vector<ll>
 #define vpi vector<pair<ll, ll>>
-#define pii pair<ll, ll>
+#define pii pair<ll,ll> 
 #define srt(a) sort(a.begin(), a.end())
 #define all(a) a.begin(), a.end()
 #define rsrt(a) sort(a.rbegin(), a.rend())
@@ -26,48 +26,44 @@ using namespace std;
 #define fast ios_base::sync_with_stdio(false), cin.tie(NULL);
 #define loop(i, a, b) for (int i = (a); i < (b); ++i)
 #define rloop(i, a, b) for (int i = (a); i <= (b); ++i)
-#define scan(a) loop(i, 0, a.size()) cin >> a[i]
-void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
-template <typename T>
-using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-const int N = 2e5 + 5;
+#define scan(a) loop(i,0, a.size()) cin >> a[i]
+void print (vector<ll>&a) {loop(i,0,a.size())cout<<a[i]<<' ';}
+template <typename T> using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 2e5 +5;
 void hello_world_solve_here()
 {
-
-    ll n;
-    cin >> n;
+    
+    ll n;cin>>n;
     vi a(n);
-    ll sum = 0;
-    loop(i, 0, n)
+    scan(a);
+    ll l=1,r=1;
+    for (int i=1; i<n; i++)
     {
-        cin >> a[i];
-        sum += a[i];
+        if(a[i]!=a[i-1])break;
+        l++;
     }
+    for (int i=n-2; i>=0; i--)
+    {
+        if(a[i]!=a[i+1])break;
+        r++;
+    }
+    ll ans =0;
+    if(a[0]==a[n-1]){
+        ans = min(n,(l+r));
+    }
+    else{
+        ans= min(n,max(l,r));
+    }
+    cout<<n-ans<<endl;
 
-    ll x = sum / n;
-    ll cur = 0;
-    bool ok = true;
-    for (int i = 0; i < n; i++)
-    {
-        cur += a[i];
-        if (cur < ((i + 1) * x))
-        {
-            ok = false;
-            break;
-        }
-    }
-    if (ok)
-        yes;
-    else
-        no;
 }
+
 
 signed main()
 {
     fast;
-    int t = 1;
-    cin >> t;
-    while (t--)
-        hello_world_solve_here();
+    int t=1;
+        cin>>t;
+    while(t--)hello_world_solve_here();
     return 0;
 }
