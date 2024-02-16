@@ -31,41 +31,38 @@ using namespace std;
 void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
 template <typename T>
 using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-const int n = 2e5 + 5;
+const int N = 2e5 + 5;
 void hello_world_solve_here()
 {
-    ll n, x;
-    ll mx = -1, mn = 2e9;
+
+    int n;
     cin >> n;
+    map<pair<int, int>, int> mp;
+    ll ans = 0;
+    vector<string> s(n);
+    vi sum(n, 0);
     for (int i = 0; i < n; i++)
     {
-        cin >> x;
-        mn = min(mn, x);
-        mx = max(mx, x);
+        cin >> s[i];
+        ll ss = 0;
+        for (auto u : s[i])
+            ss += u - '0';
+        for (int j = 0; j < s[i].length(); j++)
+        {
+            sum[i] += s[i][j] - '0';
+            mp[{sum[i] * 2 - ss, (j + 1) * 2 - s[i].length()}]++;
+        }
     }
-    int mx2 = mx + 1;
-    mx -= mn;
-    int ans = 0;
-    while (mx > 0)
-    {
-        mx /= 2;
-        ans++;
-    }
-    cout << ans << endl;
-    if (ans < n + 1 && ans > 0)
-    {
-        for (int i = 0; i < ans; i++)
-            cout << mx2 << " ";
-        cout << endl;
-    }
+    for (int i = 0; i < n; i++)
+        ans += mp[{sum[i], s[i].length()}] + mp[{-sum[i], -s[i].length()}];
+    cout << ans << line;
 }
-
 
 signed main()
 {
     fast;
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
         hello_world_solve_here();
     return 0;

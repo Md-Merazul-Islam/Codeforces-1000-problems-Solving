@@ -31,35 +31,36 @@ using namespace std;
 void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
 template <typename T>
 using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-const int n = 2e5 + 5;
+const int N = 2e5 + 5;
 void hello_world_solve_here()
 {
-    ll n, x;
-    ll mx = -1, mn = 2e9;
-    cin >> n;
+
+    ll n, m, ans = 0;
+    cin >> n >> m;
+    multiset<int> a;
+    for (int i = 0; i < n - 1; i++)
+    {
+        int x;
+        cin >> x;
+        a.insert(-x);
+    }
+    a.insert(-1);
     for (int i = 0; i < n; i++)
     {
+        int x;
         cin >> x;
-        mn = min(mn, x);
-        mx = max(mx, x);
-    }
-    int mx2 = mx + 1;
-    mx -= mn;
-    int ans = 0;
-    while (mx > 0)
-    {
-        mx /= 2;
-        ans++;
+        auto it = a.upper_bound(-x);
+        if (it != a.end())
+        {
+            a.erase(it);
+        }
+        else
+        {
+            ans++;
+        }
     }
     cout << ans << endl;
-    if (ans < n + 1 && ans > 0)
-    {
-        for (int i = 0; i < ans; i++)
-            cout << mx2 << " ";
-        cout << endl;
-    }
 }
-
 
 signed main()
 {
