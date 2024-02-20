@@ -34,25 +34,35 @@ using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_stati
 const int N = 2e5 + 5;
 void hello_world_solve_here()
 {
-
-    int n;
-    cin >> n;
-    vi a(n);
-    scan(a);
-    map<int, int> mp;
-    int ans = n;
+    ll n, m,l,r;
+    l = 0;
+    char c;
+    cin >> n >> m;
+    r = n - 1;
+    vi a(n + 1);
+    vi t(n);
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
     for (int i = 0; i < n; i++)
     {
-        mp[a[i]]++;
-        if (mp[2147483647 - a[i]] > 0)
+        cin >> c;
+        if (c == 'L')
         {
-            mp[a[i]]--;
-            mp[2147483647 - a[i]]--;
-            ans--;
+            t[i] = a[l];
+            l++;
+        }
+        else
+        {
+            t[i] = a[r];
+            r--;
         }
     }
-
-    cout << ans << endl;
+    a[n] = 1;
+    for (int i = n - 1; i >= 0; i--)
+        a[i] = (a[i + 1] * t[i]) % m;
+    for (int i = 0; i < n; i++)
+        cout << a[i] << ' ';
+nl;
 }
 
 signed main()
