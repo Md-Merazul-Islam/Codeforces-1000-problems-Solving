@@ -38,7 +38,6 @@ void hello_world_solve_here()
     string s;
     cin >> s;
     ll q;cin>>q;
-    
     map<char, char> mp;
     map<char, int> mpp;
     vector<pii> v;
