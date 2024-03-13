@@ -4,7 +4,6 @@
 using namespace std;
 #define ll long long
 
-
 long long count_pairs(vector<ll>& s, ll c) {
     long long ans = (((c + 1) * (c + 2)) / 2);
     long long sum = 0, s_sum = 0;
