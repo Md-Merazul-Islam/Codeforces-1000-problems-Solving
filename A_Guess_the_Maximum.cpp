@@ -33,28 +33,24 @@ void hello_world_solve_here()
 
     int n;
     cin >> n;
-    vi a(n), b(n + 1);
-    scan(a);
-    scan(b);
-    ll near = 1e9 + 5;
-    ll ans = 0;
+    vi a(n);
     for (int i = 0; i < n; i++)
     {
-        ans += abs(a[i] - b[i]);
-        if(min(a[i],b[i])<=b[n] && max(a[i],b[i])>=b[n]){
-            near=0;
-
-        }
-        near=min(min(abs(a[i]-b[n]),abs(b[i]-b[n])),near);
+        cin >> a[i];
     }
-    cout<<ans+near+1<<endl;
+    int mn = INT_MAX;
+    for (int i=1; i<n; i++){
+        int mx= max(a[i],a[i-1]);
+        mn= min(mx,mn);
 
+    }
+    cout<<mn-1<<endl;
 }
 
 signed main()
 {
     fast;
-    int t = 1;
+    int t = 1; 
     cin >> t;
     while (t--)
         hello_world_solve_here();

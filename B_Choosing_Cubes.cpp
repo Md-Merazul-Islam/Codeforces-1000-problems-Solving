@@ -31,24 +31,18 @@ const int N = 2e5 + 5;
 void hello_world_solve_here()
 {
 
-    int n;
-    cin >> n;
-    vi a(n), b(n + 1);
+    int n, f, k;
+    cin >> n >> f >> k;
+    vi a(n);
     scan(a);
-    scan(b);
-    ll near = 1e9 + 5;
-    ll ans = 0;
-    for (int i = 0; i < n; i++)
-    {
-        ans += abs(a[i] - b[i]);
-        if(min(a[i],b[i])<=b[n] && max(a[i],b[i])>=b[n]){
-            near=0;
-
-        }
-        near=min(min(abs(a[i]-b[n]),abs(b[i]-b[n])),near);
-    }
-    cout<<ans+near+1<<endl;
-
+    int val = a[f - 1];
+    rsrt(a);
+    if (val == a[k - 1] && k<n && a[k]==val)
+        cout << "MAYBE" << endl;
+    else if (val >= a[k - 1])
+        yes;
+    else
+        no;
 }
 
 signed main()
