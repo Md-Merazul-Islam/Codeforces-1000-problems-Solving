@@ -27,33 +27,24 @@ using namespace std;
 void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
 template <typename T>
 using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-const int N = 600;
+const int N = 2e5 + 5;
 void hello_world_solve_here()
 {
 
-    int n, m;
-    cin >> n >> m;
-    char a[N][N];
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
-    for (int i = 1; i <= m; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            if ((a[n][i] == a[j][m] && a[n][i] == a[1][1]) || (a[1][i] == a[j][1] && a[1][i] == a[n][m]))
-            {
-                yes;
+    string a, b;
+    cin >> a >> b;
+    int n = a.size(), m = b.size();
 
-                return;
-            }
+
+    int ans= n+m;
+    for (int i = 0; i < m; ++i){
+        int j=i;
+        for (auto x: a){
+            if(j<m && x==b[j])j++;
+            ans = min(ans, n + m - j+i);
         }
     }
-    no;return;
+   cout<<ans<<endl;
 }
 
 signed main()
