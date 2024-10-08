@@ -22,7 +22,6 @@ using namespace std;
 void mdmerazulislam()
 {
 }
-
 int main()
 {
     fast;
