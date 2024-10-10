@@ -19,6 +19,8 @@ int main() {
         }
     }
 
+    
+
     cout << original << endl;
 
     return 0;
