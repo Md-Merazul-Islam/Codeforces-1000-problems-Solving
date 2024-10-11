@@ -13,5 +13,7 @@ int main()
         A += a;
     }
     cout << cnt << endl;
+
+    
     return 0;
 }
