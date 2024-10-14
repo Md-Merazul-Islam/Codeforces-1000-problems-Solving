@@ -39,8 +39,8 @@ void hello_world_solve_here()
     for (int i=0; i<2*n; i++)
     cin>>a[i];
 
-   srt(a);
-   ll ans=0;
+     srt(a);
+  ll ans=0;
   
    
         for (int i=0; i<2*n;)
