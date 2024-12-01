@@ -26,7 +26,7 @@ void mdmerazulislam()
     vi a(n);
     for (int i = 0; i < n; ++i)
         cin >> a[i];
-    ll b[30]={0};
+    ll b[30] = {0};
     // for (int i = 0; i < 30; ++i)
     //     b[i] = 0;
     for (int i = 0; i < 30; ++i)
